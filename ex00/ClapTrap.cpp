@@ -40,22 +40,54 @@ ClapTrap::~ClapTrap()
 
 void	ClapTrap::attack(const std::string& target)
 {
-	_energyPoints -= 1;
+	if (_energyPoints > 0 && _hitPoints > 0)
+		_energyPoints -= 1;
+	else if (_hitPoints == 0)
+	{
+		std::cout << _name << " has been defeated" << std::endl;
+		return ;
+	}
+	else if (_energyPoints == 0)
+	{
+		std::cout << _name << " has no energy left!" << std::endl;
+		return ;
+	}
 	std::cout << _name << " attacks " << target
 	<< " causing " << _attackDamage << " points of damage!" << std::endl; 
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	_hitPoints = _hitPoints - amount;
-	std::cout << _name << " has taken "
-	<< amount << " points of damage!" << std::endl; 
+	if (_hitPoints < amount)
+	{
+		_hitPoints = 0;
+		std::cout << _name << " has yielded" << std::endl;
+		return ;
+	}
+	else
+	{
+		_hitPoints -= amount;
+		std::cout << _name << " has taken "
+		<< amount << " points of damage!" << std::endl;
+	}
 
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	_energyPoints -= 1;
+	if (_energyPoints > 0)
+		_energyPoints -= 1;
+	if ((_hitPoints + amount) >= 10)
+	{
+		std::cout << _name << " healed to full health!" << std::endl;
+		_hitPoints = 10;
+		return ;
+	}
+	else if (_energyPoints == 0)
+	{
+		std::cout << _name << " has used up all of their energy points!" << std::endl;
+		return ;
+	}
 	_hitPoints = _hitPoints + amount;
 	std::cout << _name << " has repaired itself by " << amount
 	<< " points!" << std::endl; 

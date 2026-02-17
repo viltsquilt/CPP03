@@ -1,8 +1,9 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main()
 {
 	ClapTrap	a("Aerion");
+	ScavTrap	b("Dunk");
 	const std::string	target = "Dunk";
 
 	a.attack("Dunk");

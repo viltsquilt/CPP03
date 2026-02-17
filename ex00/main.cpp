@@ -7,9 +7,8 @@ int	main()
 
 	a.attack("Dunk");
 	a.takeDamage(5);
-	a.beRepaired(3);
+	a.beRepaired(20);
 	a.attack("Dunk");
 	a.takeDamage(20);
-	std::cout << "Aerion shouts: I yield!" << std::endl;
 	return (0);
 };
