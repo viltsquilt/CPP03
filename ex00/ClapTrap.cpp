@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap()
 {
-
+	std::cout << "Constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& orig)
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(std::string name)
 	_hitPoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 10;
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Parametrized constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
@@ -61,7 +61,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	if (_hitPoints < amount)
 	{
 		_hitPoints = 0;
-		std::cout << _name << " has yielded" << std::endl;
+		std::cout << _name << " yields" << std::endl;
 		return ;
 	}
 	else
