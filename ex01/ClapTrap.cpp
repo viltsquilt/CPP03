@@ -17,10 +17,13 @@ ClapTrap::ClapTrap(const ClapTrap& orig)
 ClapTrap&	ClapTrap::operator=(const ClapTrap& orig)
 {
 	std::cout << "ClapTrap copy assignment operator called" << std::endl;
-	_name = orig._name;
-	_hitPoints = orig._hitPoints;
-	_energyPoints = orig._energyPoints;
-	_attackDamage = orig._attackDamage;
+	if (this != &orig)
+	{
+		_name = orig._name;
+		_hitPoints = orig._hitPoints;
+		_energyPoints = orig._energyPoints;
+		_attackDamage = orig._attackDamage;
+	}
 	return (*this);
 }
 
