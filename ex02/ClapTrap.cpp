@@ -27,9 +27,9 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& orig)
 ClapTrap::ClapTrap(std::string name)
 {
 	_name = name;
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+	_hitPoints = 10;
+	_energyPoints = 10;
+	_attackDamage = 0;
 	std::cout << "ClapTrap parametrized constructor called" << std::endl;
 }
 

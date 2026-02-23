@@ -8,6 +8,9 @@ FragTrap::FragTrap() : ClapTrap()
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "FragTrap parametrized constructor called" << std::endl;
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
 }
 
 FragTrap::~FragTrap()
